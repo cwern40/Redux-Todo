@@ -17,13 +17,11 @@ export default function(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO: {
             const { value, completed } = action.payload
+            const newTodo = {value, completed}
 
             return {
                 ...state,
-                todo: {
-                    value,
-                    completed,
-                }
+                todo: [...initialState, newTodo]
             }
         }
 
