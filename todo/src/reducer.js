@@ -1,7 +1,16 @@
 import { ADD_TODO } from './Action';
 
 const initialState = {
-    todos: []
+    todos: [
+        {
+            value: 'Homework',
+            completed: false,
+        },
+        {
+            value: 'Clean my room',
+            completed: false,
+        }
+    ]
 }
 
 export default function(state = initialState, action) {
