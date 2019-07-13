@@ -1,11 +1,23 @@
-import React from 'react';
+import { ADD_TODO } from './Action';
 
-const reducer = () => {
-    return (
-        <div> 
-            reducer
-        </div>
-    )
+const initialState = {
+    todos: []
 }
 
-export default reducer;
+export default function(state = initialState, action) {
+    switch (action.type) {
+        case ADD_TODO: {
+            const { value, completed } = action.payload
+
+            return {
+                ...state,
+                todo: {
+                    value,
+                    completed,
+                }
+            }
+        }
+
+        default: return state
+    }
+}

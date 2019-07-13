@@ -5,7 +5,7 @@ export function addTodo(value, completed) {
         type: ADD_TODO,
         payload: {
             value,
-            completed
+            completed,
         }
     }
 }
