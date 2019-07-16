@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    addTodo: addTodo
+    addTodo: addTodo,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

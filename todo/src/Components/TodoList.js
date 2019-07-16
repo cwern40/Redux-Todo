@@ -1,12 +1,13 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 import { connect } from 'react-redux';
+import './Todo.css';
 
 const TodoList = props => {
     return (
         <div className="todo-list">
             {props.todos.map((item, i) => (
-                <TodoItem key={i} item={item} />
+                <TodoItem key={i} item={item} index={i}/>
             ))}
         </div>
     )

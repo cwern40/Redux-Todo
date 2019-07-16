@@ -1,11 +1,24 @@
 import React from 'react';
+import { toggleComplete } from '../Action';
+import { connect } from 'react-redux';
 
-const TodoItem = props => {
-    return (
-        <div>
-            {props.item.value}
-        </div>
-    )
+class TodoItem extends React.Component {
+
+    toggleComplete = () => {
+        this.props.toggleComplete(this.props.index)
+    }
+
+    render() {
+        return (
+            <div className={`todo${this.props.item.completed ? " completed" : ""}`} onClick={this.toggleComplete}>
+                {this.props.item.value}
+            </div>
+        )
+    }
 }
 
-export default TodoItem;
+const mapDispatchToProps = {
+    toggleComplete: toggleComplete,
+}
+
+export default connect(null, mapDispatchToProps)(TodoItem);

@@ -1,4 +1,4 @@
-import { ADD_TODO } from './Action';
+import { ADD_TODO, TOGGLE_COMPLETE } from './Action';
 
 const initialState = {
     todos: [
@@ -22,6 +22,27 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 todos: [...state.todos, newTodo]
+            }
+        }
+        case TOGGLE_COMPLETE: {
+            const index = action.payload
+            const newList = state.todos.map((item, i) => {
+                if(i === index) {
+                  const newObj = {
+                    ...item,
+                    value: item.value,
+                    completed: !item.completed
+                  };
+                  console.log(newObj);
+                  return newObj;
+                } else {
+                  return item;
+                }
+              });
+              console.log(newList)
+            return {
+                ...state,
+                todos: newList
             }
         }
 
