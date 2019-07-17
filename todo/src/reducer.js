@@ -25,7 +25,8 @@ export default function(state = initialState, action) {
             }
         }
         case TOGGLE_COMPLETE: {
-            const index = action.payload
+            const index = action.payload.index
+            console.log('index', index)
             const newList = state.todos.map((item, i) => {
                 if(i === index) {
                   const newObj = {
@@ -33,13 +34,13 @@ export default function(state = initialState, action) {
                     value: item.value,
                     completed: !item.completed
                   };
-                  console.log(newObj);
+                  console.log('newObj', newObj);
                   return newObj;
                 } else {
                   return item;
                 }
               });
-              console.log(newList)
+              console.log('newList', newList)
             return {
                 ...state,
                 todos: newList
